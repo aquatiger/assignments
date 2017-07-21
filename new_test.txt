@@ -1,0 +1,6 @@
+def birthday(a, b):
+a = 2
+b = 13
+    print "My birthday month is %s" % 2
+    print "My birthday day is %s" % 13
+print (a + b)

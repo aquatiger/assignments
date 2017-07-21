@@ -1,0 +1,7 @@
+mergedlist = []
+
+a = ['a', 'b', 'c']
+b = [1, 2, 3]
+
+mergedlist = a + b
+print(mergedlist)

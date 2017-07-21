@@ -1,0 +1,10 @@
+import math
+
+list = []
+
+for i in range(0,20):
+  a = math.pow(2, i)
+  print(int(a))
+  list.append(a)
+
+print min(list)

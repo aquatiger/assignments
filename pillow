@@ -1,0 +1,10 @@
+from PIL import Image, ImageDraw
+
+img = Image.new('RGB', (200,200), (255, 255, 255))
+draw = ImageDraw.Draw(img)
+draw.line((100,55,100,120), fill=(200,30,55)) #body
+draw.line((150,175,100,120), fill=(23, 254, 100)) #right leg
+draw.line((50,175,100,120), fill=(150,150,150)) #left leg
+draw.line((35,75,165,75), fill=(0,255,255)) #arms
+draw.ellipse((75,10,125,60), fill=(100,100,100)) #head
+img.show()
