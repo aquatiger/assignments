@@ -22,21 +22,22 @@ Write, test, and refactor as you go.
 >>> ms_clean('Readability counts')
 'R9y c4s'
 
->>> strong_cleaner('Err@#%$ors sho@#$@#$uld nev1!$#@er pass sile&I&&*(ntly')
+>>> strong_cleaner('Err@#%$ors sho@#$@#$uld nev1!$#@er pass sile&&&*(ntly.')
 'Errors should never pass silently.'
 
->>> extracto('1S2pe3cia4l ca5ses ar6en\'t sp7ecial en8ough to b9reak the r0ules.')
+>>> extracto("1S2pe3cia4l ca5ses ar6en't sp7ecial en8ough to b9reak the r0ules.")
 45
 
->>> extracto('2S4pe6cia8l ca0ses ar2en\'t sp4ecial en6ough to b8reak the r0ules.')
+>>> extracto("2S4pe6cia8l ca0ses ar2en't sp4ecial en6ough to b8reak the r0ules.")
 40
 
->>> extracto('3S6pe9cia2l ca5ses ar8en\'t sp1ecial en4ough to b7reak the r0ules.')
+>>> extracto("3S6pe9cia2l ca5ses ar8en't sp1ecial en4ough to b7reak the r0ules.")
 45
 """
 
 
 import re
+from collections import Counter
 
 
 def scrub_numbers(string):
@@ -63,7 +64,12 @@ def clean_data(string):
 
     return cleanest
 
+
 def some_scrubber(string):
+
+    """
+    takes away the extra spaces
+    """
     p = string[::2]
 
     # p = re.compile(r'\s\s')
@@ -77,8 +83,44 @@ def some_scrubber(string):
 
     return p
 
-def  mr_clean(string, replacement):
-    result = replacement * (len(string) * 2)
-    newstring = result[0::2]
-    return newstring
 
+def  mr_clean(string, spaces):
+    sparse = spaces.join(string)
+    return ' ' + sparse + ' '
+
+
+def ms_clean(string):
+    """
+    Function to count the number of letters between the first and last letters and return
+    the first letter, the total of letters in between, and the last letter.
+    """
+    mscleanlist = []
+    for word in string.split():
+        results = len(word[1:-1])  # len(string) - 2
+        endresults = word[0] + str(results) + word[-1]
+        mscleanlist.append(endresults)
+        theend = ' '.join(mscleanlist)
+
+    return theend
+
+
+def strong_cleaner(string):
+    """
+    Clean strong language from string
+    """
+    p = re.compile(r'[^a-zA-Z\s]')
+    clean = p.sub('', string)
+    return clean + '.'
+
+
+def extracto(string):
+    """
+    remove all the integers and add them together for a total
+    """
+
+    p = re.compile(r'[^\d]')
+    clean = p.sub('', string)
+    cleanlist = list(int(chr) for chr in clean)
+    for element in cleanlist:
+        result = sum(element for element in cleanlist)
+    return result
