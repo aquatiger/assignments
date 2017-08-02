@@ -43,6 +43,9 @@ class TestCrimeData(unittest.TestCase):
         self.assertEquals(len(sorted_data), 13), 'Data is not equal')
         self.assertIsInstance(sorted_data, list, 'Data is not a list')
 
-    def test_counter(self):
-        self.assertIsNotNone(len(sorted_data), 13, 'Data is None')
-        self.assert
+    def test_lister(self):
+        split_data = splitter(self.test_data)
+        listed = lister(split_data)
+        self.assertIsNotNone(listed, 'Data is None')
+        self.assertEquals(len(listed), 12, 'Data is not the correct amount of crimes')
+        self.assertIsInstance(listed, dict, 'Data is not a dictionary')
