@@ -29,19 +29,39 @@ class TestCrimeData(unittest.TestCase):
         raw_data = opener(filename)
         self.assertIsNotNone(raw_data, 'Fetching data from file failed.')
         self.assertIsInstance(raw_data, str, 'File data must be a string')
+        self.assertDictContainsSubset(raw_data, drugs, 'Data does not contain subset: Drugs')
+        self.assertDictContainsSubset(raw_data, arson, 'Data does not contain subset: Arson')
+        self.assertDictContainsSubset(raw_data, 'Liquor Laws', 'Data does not contain subset: Liquor Laws')
+        self.assertDictContainsSubset(raw_data, theft, 'Data does not contain subset: Theft')
+        self.assertDictContainsSubset(raw_data, larceny, 'Data does not contain subset: Larceny')
+        self.assertNotIsInstance(raw_data, list, 'Data is list')
+        self.assertNotIsInstance(raw_data. dict, 'Data is dictionary')
+        self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
 
     def test_splitter(self):
         split_data = splitter(self.test_data)
         self.assertIsNotNone(split_data, 'Data is None')
         self.assertIsInstance(split_data, list, 'Data is not a list')
+        self.assertNotIsInstance(raw_data. dict, 'Data is dictionary')
+        self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
         self.assertEquals(len(split_data), 13)
         self.assertIsInstance(split_data[0], list, 'First element is not a list')
 
     def test_sorter(self):
         split_data = splitter(self.test_data)
         sorted_data = split_data
-        self.assertEquals(len(sorted_data), 13), 'Data is not equal')
+        self.assertEquals(len(sorted_data), 13, 'Data is not equal')
         self.assertIsInstance(sorted_data, list, 'Data is not a list')
+        self.assertNotIsInstance(raw_data. dict, 'Data is dictionary')
+        self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
+
+    def test_counter(self):
+        self.assertEquals(len(crimes), 13, 'Data length is not equal to beginning length')
+        self.assertIsInstance(self.test_data, list, 'Data is not a list')
+        self.assertNotIsInstance(raw_data. dict, 'Data is dictionary')
+        self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
+        self.assertIsNotNone(self.test_data, 'Data is None')
+
 
     def test_lister(self):
         split_data = splitter(self.test_data)
@@ -49,3 +69,21 @@ class TestCrimeData(unittest.TestCase):
         self.assertIsNotNone(listed, 'Data is None')
         self.assertEquals(len(listed), 12, 'Data is not the correct amount of crimes')
         self.assertIsInstance(listed, dict, 'Data is not a dictionary')
+        self.assertNotIsInstance(raw_data. list, 'Data is list')
+        self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
+
+    def test_menu(self):
+        self.assertIsNotNone(self.test_data, dict, 'Data is None')
+        self.assertIn("crime_incident_data_2011.csv",
+                       '/home/roger/Git/PythonFullStack/1_Python/3_Applied_Python/labs/pdx_crime_data/data/',' \
+                       'File is not in directory')
+        self.assertIn("crime_incident_data_2012.csv",
+                      '/home/roger/Git/PythonFullStack/1_Python/3_Applied_Python/labs/pdx_crime_data/data/', ' \
+                      'File is not in directory')
+        self.assertIn("crime_incident_data_2013.csv",
+                      '/home/roger/Git/PythonFullStack/1_Python/3_Applied_Python/labs/pdx_crime_data/data/', ' \
+                      'File is not in directory')
+        self.assertIn("crime_incident_data_2014.csv",
+                      '/home/roger/Git/PythonFullStack/1_Python/3_Applied_Python/labs/pdx_crime_data/data/', ' \
+                      'File is not in directory')
+
