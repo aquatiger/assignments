@@ -63,14 +63,28 @@ class TestCrimeData(unittest.TestCase):
         self.assertIsNotNone(self.test_data, 'Data is None')
 
 
-    def test_lister(self):
+    def test_filter(self):
         split_data = splitter(self.test_data)
-        listed = lister(split_data)
-        self.assertIsNotNone(listed, 'Data is None')
-        self.assertEquals(len(listed), 12, 'Data is not the correct amount of crimes')
-        self.assertIsInstance(listed, dict, 'Data is not a dictionary')
+        filtered = filtered(split_data)
+        self.assertIsNotNone(filtered, 'Data is None')
+        self.assertEquals(len(filtered), 12, 'Data is not the correct amount of crimes')
+        self.assertIsInstance(filtered, dict, 'Data is not a dictionary')
         self.assertNotIsInstance(raw_data. list, 'Data is list')
         self.assertNotIsInstance(raw_data, tuple, 'Data is a tuple')
+
+    def test_maximizer(self):
+        maximized = maximizer(self.test_data)
+        self.assertIsNotNone(maximized, 'Data is None')
+        self.assertIsInstance(maximized, list, 'Data is not a list')
+        self.assertNotIsInstance(maximized.dict, 'Data is dictionary')
+        self.assertNotIsInstance(maximized, tuple, 'Data is a tuple')
+
+    def test_minimizer(self):
+        minimized = minimizer(self.test_data)
+        self.assertIsNotNone(minimized, 'Data is None')
+        self.assertIsInstance(minimized, list, 'Data is not a list')
+        self.assertNotIsInstance(minimized.dict, 'Data is dictionary')
+        self.assertNotIsInstance(minimized, tuple, 'Data is a tuple')
 
     def test_menu(self):
         self.assertIsNotNone(self.test_data, dict, 'Data is None')
