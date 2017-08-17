@@ -1,7 +1,7 @@
 import math
 
 
-class AtmAccount:
+class AtmAccount(object):
     def __init__(self, name, balance, interestrate):
         self.name = name
         self.balance = balance
@@ -62,9 +62,9 @@ def initial_input(raccount):
         print('Here is a list of your transactions')
         print(raccount.transactions)
 
-raccount = AtmAccount('Roger', 500.0, 0.01)
-raccount.deposit(5)
-raccount.bal()
-print(raccount.bal())
-raccount.calc_interest(0.01)
-initial_input(raccount)
+# raccount = AtmAccount('Roger', 500.0, 0.01)
+# raccount.deposit(5)
+# raccount.bal()
+# print(raccount.bal())
+# raccount.calc_interest(0.01)
+# initial_input(raccount)

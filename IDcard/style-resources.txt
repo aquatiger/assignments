@@ -19,7 +19,7 @@ html {
 
 /* Rulesets to be matched up with selectors */
 
-{
+.card {
   width: 35em;
   height: 22em;
   margin: 5em auto;

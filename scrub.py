@@ -94,7 +94,7 @@ def ms_clean(string):
     Function to count the number of letters between the first and last letters and return
     the first letter, the total of letters in between, and the last letter.
     """
-    mscleanlist = []
+    mscleanlist = list()    # empty list [] works, too
     for word in string.split():
         results = len(word[1:-1])  # len(string) - 2
         endresults = word[0] + str(results) + word[-1]
@@ -120,7 +120,7 @@ def extracto(string):
 
     p = re.compile(r'[^\d]')
     clean = p.sub('', string)
-    cleanlist = list(int(chr) for chr in clean)
-    for element in cleanlist:
-        result = sum(element for element in cleanlist)
+    result = sum(int(chr) for chr in clean)    # Short circut
+    # for element in cleanlist:
+    #     result = sum(element for element in cleanlist)
     return result
