@@ -1,3 +1,6 @@
+"use strict";
+
+
 $("#toDoButton").on('click', function(evt){
     //This is an event handler.
     evt.preventDefault();   // stop page from refreshing
@@ -7,14 +10,17 @@ $("#toDoButton").on('click', function(evt){
     toDoListItem.append(toggleButton);
 
     toggleButton.on('click', function(){
-        "use strict";
+
         toDoListItem.css({'text-decoration': 'line-through'});
 
     });
-
-
 
     // console.log(toDoListItem);
     $('#toDoList').append(toDoListItem);
 
 });
+
+
+
+//    toggleButton.off('click', function(){
+  //      toDoListItem.css({'text-decoration': ''});
