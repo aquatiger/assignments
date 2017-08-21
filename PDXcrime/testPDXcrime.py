@@ -78,6 +78,7 @@ class TestCrimeData(unittest.TestCase):
         self.assertIsInstance(maximized, list, 'Data is not a list')
         self.assertNotIsInstance(maximized.dict, 'Data is dictionary')
         self.assertNotIsInstance(maximized, tuple, 'Data is a tuple')
+	self.assertRaises(ValueError, 'Data has a ValueError')
 
     def test_minimizer(self):
         minimized = minimizer(self.test_data)
@@ -85,6 +86,7 @@ class TestCrimeData(unittest.TestCase):
         self.assertIsInstance(minimized, list, 'Data is not a list')
         self.assertNotIsInstance(minimized.dict, 'Data is dictionary')
         self.assertNotIsInstance(minimized, tuple, 'Data is a tuple')
+	self.assertRaises(ValueError, 'Data has a ValueError)
 
     def test_menu(self):
         self.assertIsNotNone(self.test_data, dict, 'Data is None')
