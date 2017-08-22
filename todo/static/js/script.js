@@ -3,6 +3,7 @@
 
 $("#toDoButton").on('click', function(evt){
     //This is an event handler.
+    alert('This works');
     evt.preventDefault();   // stop page from refreshing
     let x = $('#toDoInput').val();
     let toDoListItem = $("<li>").text(x);
