@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="site.css">
+</head>
+<body>
+<div class="container" id="Gallery">
+  <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1>
+  <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-xs-6" id="borderdiv">
+          <a href="#" class="d-block mb-4 h-100" id="borderanc">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+
+<span>Please enter your URL for your picture:</span>
+
+<!--<div class="input-group input-group-lg">-->
+  <!--<span class="input-group-addon" id="sizing-addon1">Please enter your URL for your picture:</span>-->
+  <!--<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">-->
+<!--</div>-->
+
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" id="userinput" placeholder="URL entry...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="go" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script src="site.js"></script>
+
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white"> Programmed by Aquatiger in 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+</body>
+</html>
