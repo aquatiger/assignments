@@ -1,0 +1,14 @@
+import math
+
+lista = []
+listb = []
+
+for i in range(0,20):
+  a = 2 * i
+  lista.append(a)
+  print(lista)
+
+if a < 10:
+  listb.append(a)
+else:
+  print('Happy Birthday')
