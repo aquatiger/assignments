@@ -11,4 +11,4 @@ for i in range(20):
     steps = 0
     print(str(i) + ' ' + str(fibo(i)) + ' ' + str(steps))
 
-print(fibo(5))
+print(fibo(10))
